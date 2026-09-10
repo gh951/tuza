@@ -169,10 +169,11 @@ a:hover{color:#084c3f}
   </section>
   </sc-if>
 
+  <div style="max-width:1240px;margin:0 auto 0;padding:64px 48px 32px;display:flex;align-items:center">
+    <span style="flex:1;height:3px;background:#a8842f;box-shadow:0 0 20px rgba(168,132,47,.4)"></span>
+  </div>
 
-  <div style="max-width:1240px;margin:25px auto 0;padding:0 48px;display:flex;align-items:center;gap:18px">
-    <span style="font:500 11px/1 'JetBrains Mono',monospace;letter-spacing:.18em;color:rgba(11,107,88,.5)">SET 02</span>
-    <span style="flex:1;height:1px;background:linear-gradient(90deg,rgba(11,107,88,.25),transparent)"></span>
+  <div style="max-width:1240px;margin:0 auto;padding:0 48px;display:flex;align-items:center;gap:18px">
   </div>
 
   <section id="top2" style="position:relative;padding:{{ topPad }};max-width:1240px;margin:20px auto 0">
@@ -359,42 +360,22 @@ a:hover{color:#084c3f}
   </section>
   </sc-if>
 
+  <div style="max-width:1240px;margin:0 auto 0;padding:64px 48px 56px;display:flex;align-items:center">
+    <span style="flex:1;height:3px;background:#a8842f;box-shadow:0 0 20px rgba(168,132,47,.4)"></span>
+  </div>
 
-  <section id="ar-top" style="position:relative;padding:{{ topPad }};max-width:1240px;margin:20px auto 0">
+  <section id="ar-top" style="position:relative;padding:{{ topPad }};max-width:1240px;margin:0 auto">
     <div id="cgo-slider3" style="position:relative;margin:0 0 {{ sliderMarginBottom }};border-radius:{{ sliderRadius }};overflow:hidden;background:radial-gradient(120% 90% at 18% 8%,#1c1c1f 0%,#0e0e10 46%,#070708 100%);box-shadow:0 50px 110px -46px rgba(0,0,0,.85),inset 0 1px 0 rgba(255,255,255,.07);min-height:clamp(420px,42vw,560px)">
       <div style="position:absolute;top:-40%;left:50%;width:150%;height:180%;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(255,255,255,.07),rgba(255,255,255,0) 72%);pointer-events:none"></div>
       <div style="position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,0) 42%,rgba(255,255,255,.045) 50%,rgba(255,255,255,0) 58%);pointer-events:none"></div>
       <sc-for list="{{ slides3 }}" as="s" hint-placeholder-count="1">
         <div style="position:absolute;inset:0;opacity:{{ s.op }};transform:scale({{ s.sc }});transition:opacity .9s cubic-bezier(.22,.61,.36,1),transform 1.6s cubic-bezier(.22,.61,.36,1);pointer-events:{{ s.pe }}">
-          <sc-if value="{{ s.isText }}" hint-placeholder-val="{{ true }}">
-            <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:clamp(42px,5.4vw,88px);padding-bottom:clamp(104px,10vw,140px)">
-              <div style="font:400 clamp(22px,3.1vw,46px)/1.24 Inter,sans-serif;letter-spacing:-.035em;color:#f7f5f0;max-width:26ch;text-wrap:balance;text-shadow:0 0 60px rgba(255,255,255,.14);white-space:pre-line">{{ s.line }}</div>
-              <sc-if value="{{ s.sub }}" hint-placeholder-val="{{ true }}">
-                <p style="margin:clamp(18px,2vw,28px) 0 0;font:300 clamp(14px,1.2vw,18px)/1.75 Inter,sans-serif;color:rgba(247,245,240,.5);max-width:52ch;text-wrap:pretty">{{ s.sub }}</p>
-              </sc-if>
+          <sc-if value="{{ s.isPhoto }}" hint-placeholder-val="{{ true }}">
+            <div style="position:absolute;inset:0;background:#0a0a0b">
+              <image-slot id="{{ s.slotId }}" src="{{ s.file }}" shape="rect" fit="contain" placeholder="{{ s.slotHint }}"></image-slot>
+              <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,7,8,.5) 0%,rgba(7,7,8,.12) 38%,rgba(7,7,8,.78) 100%);pointer-events:none"></div>
             </div>
           </sc-if>
-        </div>
-      </sc-for>
-      <div style="position:absolute;left:14px;bottom:8px;z-index:3;font:600 11px/1 'JetBrains Mono',monospace;color:rgba(124,232,201,.85);background:rgba(0,0,0,.4);padding:2px 6px;border-radius:4px">v{{ buildTag }}</div>
-      <div style="position:absolute;left:clamp(38px,4.4vw,70px);right:clamp(38px,4.4vw,70px);bottom:clamp(30px,3.4vw,46px);display:flex;align-items:center;gap:22px;z-index:2">
-        <div style="flex:none;display:flex;align-items:center;gap:5px">
-          <sc-for list="{{ dots3 }}" as="d" hint-placeholder-count="1">
-            <button onClick="{{ d.go }}" aria-label="{{ d.label }}" style="width:{{ d.w }};height:3px;padding:0;border:0;border-radius:99px;cursor:pointer;background:{{ d.bg }};box-shadow:{{ d.glow }};transition:width .5s cubic-bezier(.22,.61,.36,1),background .5s,box-shadow .5s"></button>
-          </sc-for>
-        </div>
-        <span style="flex:1"></span>
-        <span style="flex:none;font:500 11.5px/1 'JetBrains Mono',monospace;letter-spacing:.14em;color:rgba(247,245,240,.42)">{{ counter3 }}</span>
-      </div>
-    </div>
-  </section>
-
-  <section id="ar-top" style="position:relative;padding:{{ topPad }};max-width:1240px;margin:20px auto 0">
-    <div id="cgo-slider3" style="position:relative;margin:0 0 {{ sliderMarginBottom }};border-radius:{{ sliderRadius }};overflow:hidden;background:radial-gradient(120% 90% at 18% 8%,#1c1c1f 0%,#0e0e10 46%,#070708 100%);box-shadow:0 50px 110px -46px rgba(0,0,0,.85),inset 0 1px 0 rgba(255,255,255,.07);min-height:clamp(420px,42vw,560px)">
-      <div style="position:absolute;top:-40%;left:50%;width:150%;height:180%;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(255,255,255,.07),rgba(255,255,255,0) 72%);pointer-events:none"></div>
-      <div style="position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,0) 42%,rgba(255,255,255,.045) 50%,rgba(255,255,255,0) 58%);pointer-events:none"></div>
-      <sc-for list="{{ slides3 }}" as="s" hint-placeholder-count="1">
-        <div style="position:absolute;inset:0;opacity:{{ s.op }};transform:scale({{ s.sc }});transition:opacity .9s cubic-bezier(.22,.61,.36,1),transform 1.6s cubic-bezier(.22,.61,.36,1);pointer-events:{{ s.pe }}">
           <sc-if value="{{ s.isText }}" hint-placeholder-val="{{ true }}">
             <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:clamp(42px,5.4vw,88px);padding-bottom:clamp(104px,10vw,140px)">
               <div style="font:400 clamp(22px,3.1vw,46px)/1.24 Inter,sans-serif;letter-spacing:-.035em;color:#f7f5f0;max-width:26ch;text-wrap:balance;text-shadow:0 0 60px rgba(255,255,255,.14);white-space:pre-line">{{ s.line }}</div>
@@ -501,40 +482,7 @@ a:hover{color:#084c3f}
 
 
 
-  <section id="mechanics-top" style="position:relative;padding:{{ topPad }};max-width:1240px;margin:20px auto 0">
-    <div id="cgo-slider4" style="position:relative;margin:0 0 {{ sliderMarginBottom }};border-radius:{{ sliderRadius }};overflow:hidden;background:radial-gradient(120% 90% at 18% 8%,#1c1c1f 0%,#0e0e10 46%,#070708 100%);box-shadow:0 50px 110px -46px rgba(0,0,0,.85),inset 0 1px 0 rgba(255,255,255,.07);min-height:clamp(420px,42vw,560px)">
-      <div style="position:absolute;top:-40%;left:50%;width:150%;height:180%;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(255,255,255,.07),rgba(255,255,255,0) 72%);pointer-events:none"></div>
-      <div style="position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,0) 42%,rgba(255,255,255,.045) 50%,rgba(255,255,255,0) 58%);pointer-events:none"></div>
-      <sc-for list="{{ slides4 }}" as="s" hint-placeholder-count="1">
-        <div style="position:absolute;inset:0;opacity:{{ s.op }};transform:scale({{ s.sc }});transition:opacity .9s cubic-bezier(.22,.61,.36,1),transform 1.6s cubic-bezier(.22,.61,.36,1);pointer-events:{{ s.pe }}">
-          <sc-if value="{{ s.isText }}" hint-placeholder-val="{{ true }}">
-            <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:clamp(42px,5.4vw,88px);padding-bottom:clamp(104px,10vw,140px)">
-              <div style="font:400 clamp(22px,3.1vw,46px)/1.24 Inter,sans-serif;letter-spacing:-.035em;color:#f7f5f0;max-width:26ch;text-wrap:balance;text-shadow:0 0 60px rgba(255,255,255,.14);white-space:pre-line">{{ s.line }}</div>
-              <sc-if value="{{ s.sub }}" hint-placeholder-val="{{ true }}">
-                <p style="margin:clamp(18px,2vw,28px) 0 0;font:300 clamp(14px,1.2vw,18px)/1.75 Inter,sans-serif;color:rgba(247,245,240,.5);max-width:52ch;text-wrap:pretty">{{ s.sub }}</p>
-              </sc-if>
-            </div>
-          </sc-if>
-        </div>
-      </sc-for>
-      <div style="position:absolute;left:14px;bottom:8px;z-index:3;font:600 11px/1 'JetBrains Mono',monospace;color:rgba(124,232,201,.85);background:rgba(0,0,0,.4);padding:2px 6px;border-radius:4px">v{{ buildTag }}</div>
-      <div style="position:absolute;left:clamp(38px,4.4vw,70px);right:clamp(38px,4.4vw,70px);bottom:clamp(30px,3.4vw,46px);display:flex;align-items:center;gap:22px;z-index:2">
-        <div style="flex:none;display:flex;align-items:center;gap:5px">
-          <sc-for list="{{ dots4 }}" as="d" hint-placeholder-count="1">
-            <button onClick="{{ d.go }}" aria-label="{{ d.label }}" style="width:{{ d.w }};height:3px;padding:0;border:0;border-radius:99px;cursor:pointer;background:{{ d.bg }};box-shadow:{{ d.glow }};transition:width .5s cubic-bezier(.22,.61,.36,1),background .5s,box-shadow .5s"></button>
-          </sc-for>
-        </div>
-        <span style="flex:1"></span>
-        <span style="flex:none;font:500 11.5px/1 'JetBrains Mono',monospace;letter-spacing:.14em;color:rgba(247,245,240,.42)">{{ counter4 }}</span>
-      </div>
-    </div>
-  </section>
 
-  <section id="mechanics-story" style="position:relative;padding:0 48px 25px;margin-top:{{ storyMarginTop }};max-width:1240px;margin-left:auto;margin-right:auto">
-    <div style="background:#ffffff;border:1px solid #d4af6a;border-radius:16px;box-shadow:0 24px 60px -28px rgba(7,48,42,.28),0 2px 0 rgba(212,175,106,.25) inset;padding:clamp(32px,5vw,60px) clamp(26px,5vw,64px)">
-      <p style="font:400 clamp(17px,2vw,21px)/1.85 Inter,sans-serif;color:#07302a;margin:0;text-wrap:pretty">50대 역학을 4개 기준계로 통합하고<br>실시간 환경 공명을 만드는 것이 가능할까요?</p>
-    </div>
-  </section>
 
 
 
@@ -779,7 +727,7 @@ class Component extends DCLogic {
       prev: () => this.go(i - 1),
       next: () => this.go(i + 1),
       counter2: String(i2 + 1).padStart(2, '0') + ' / ' + String(SLIDES2.length).padStart(2, '0'),
-      counter3: String(0 + 1).padStart(2, '0') + ' / 03',
+      counter3: String(0 + 1).padStart(2, '0') + ' / 01',
       counter4: String(0 + 1).padStart(2, '0') + ' / 04',
       slides2: SLIDES2.map((s, n) => ({
         ...s,
@@ -802,9 +750,8 @@ class Component extends DCLogic {
       prev2: () => this.go2(i2 - 1),
       next2: () => this.go2(i2 + 1),
       slides3: [
-        { isText: true, line: '발열 · 렉\n제로', sub: '보급형 스마트폰에서도 폰이 뜨거워지지 않습니다', op: 1, sc: 1, pe: 'auto' },
-        { isText: true, line: '120,000\n색상', sub: '12만 색상을 문질러도 1초도 멈추지 않습니다', op: 0, sc: 1, pe: 'none' },
-        { isText: true, line: '픽셀 고정\n아키텍처', sub: '어떤 각도에서도 메이크업이 안면에 정확히 밀착됩니다', op: 0, sc: 1, pe: 'none' }
+        { isPhoto: true, isText: false, file: 'cgo3.jpg', slotId: 'ar-photo-1', slotHint: 'AR 메이크업 이미지', op: 1, sc: 1, pe: 'auto' },
+        { isText: true, isPhoto: false, line: '픽셀 고정\n아키텍처', sub: '어떤 각도에서도 메이크업이 안면에 정확히 밀착됩니다', op: 0, sc: 1, pe: 'none' }
       ],
       slides4: [
         { isText: true, line: '역학 융합\n알고리즘', sub: '50대 역학을 4개 기준계로 통합하고 실시간 환경 공명을 만듭니다', op: 1, sc: 1, pe: 'auto' },
