@@ -634,7 +634,7 @@ a:hover{color:#084c3f}
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;showPress&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;섹션&quot;}}">
 const SLIDES = [
-  { type: 'photo', file: 'cgo1.jpg', caption: '', ms: 2000 },
+  { type: 'photo', file: 'cgo1', caption: '', ms: 2000 },
   { type: 'text', line: '이 스마트폰으로 찍은 사진의 용량은\n약 15~17MB입니다.', ms: 3200 },
   { type: 'text', line: '이 크기에 단일 앱 구성으로\n39개 복합 기능 탑재가 가능할까요?', ms: 3400 },
   { type: 'text', line: '공학적으로는 절대 불가능합니다.', ms: 3000 },
@@ -643,7 +643,7 @@ const SLIDES = [
 ];
 
 const SLIDES2 = [
-  { type: 'photo', file: 'cgo2-1.jpg', caption: '', ms: 2000 },
+  { type: 'photo', file: 'cgo2-1', caption: '', ms: 2000 },
   { type: 'text', line: '약 18.6MB 크기의\n39개 복합 기능을 담은 앱이', ms: 3200 },
   { type: 'text', line: '터치하자마자 평균 0.039초의\n속도가 가능할까요?', ms: 3600 },
   { type: 'text', line: '최고의 소프트웨어 엔지니어조차도\n공학적으로는 절대 불가능하다고 판단할 것입니다.', ms: 3600 },
@@ -750,7 +750,7 @@ class Component extends DCLogic {
       prev2: () => this.go2(i2 - 1),
       next2: () => this.go2(i2 + 1),
       slides3: [
-        { isPhoto: true, isText: false, file: 'cgo3.jpg', slotId: 'ar-photo-1', slotHint: 'AR 메이크업 이미지', op: 1, sc: 1, pe: 'auto' },
+        { isPhoto: true, isText: false, file: 'cgo3', slotId: 'ar-photo-1', slotHint: 'AR 메이크업 이미지', op: 1, sc: 1, pe: 'auto' },
         { isText: true, isPhoto: false, line: '픽셀 고정\n아키텍처', sub: '어떤 각도에서도 메이크업이 안면에 정확히 밀착됩니다', op: 0, sc: 1, pe: 'none' }
       ],
       slides4: [
