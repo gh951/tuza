@@ -277,8 +277,8 @@ body{
 }
 @keyframes pulse{0%,100%{box-shadow:0 0 0 3px rgba(0,229,160,0.2)}50%{box-shadow:0 0 0 6px rgba(0,229,160,0.05)}}
 @keyframes zoomin{
-  0%{transform:scale(1) translate(0,0)}
-  100%{transform:scale(2.8) translate(0%,8%)}
+  0%{transform:scale(1)}
+  100%{transform:scale(2.5)}
 }
 .live-title span{font-family:'Orbitron',sans-serif;font-size:11px;color:var(--green);letter-spacing:.1em}
 .metrics-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
@@ -612,16 +612,16 @@ footer{
   <div class="slider-wrap" id="sl-speed">
     <div class="slider-track" id="sl-speed-track">
       <div class="slide"><div class="slide-placeholder" style="background:url(https://gh951.github.io/tuza/cgo-2.jpg) center/cover no-repeat"></div><div class="slide-content"><div class="slide-num">01 / 07 · SPEED</div><div class="slide-text">10,013회의 실제 구동 테스트</div></div></div>
-      <div class="slide" style="overflow:hidden">
+      <div class="slide" style="overflow:hidden;justify-content:flex-end">
         <div style="
           position:absolute;inset:0;
-          background:url(https://gh951.github.io/tuza/cgo-2.jpg) center 55%/cover no-repeat;
-          animation:zoomin 4s ease-out forwards;
-          transform-origin:50% 60%;
+          background:url(https://gh951.github.io/tuza/cgo-2.jpg) center 50%/cover no-repeat;
+          animation:zoomin 5s ease-out forwards;
+          transform-origin:50% 52%;
         "></div>
-        <div class="slide-content" style="position:relative;z-index:2;background:rgba(0,0,0,0.35);border-radius:10px;padding:12px 20px">
+        <div style="position:relative;z-index:2;width:100%;padding:16px;background:linear-gradient(transparent,rgba(0,0,0,0.7))">
           <div class="slide-num">02 / 07 · SPEED</div>
-          <div class="slide-text" style="font-size:12px;color:#fff">실제 앱 내부 속도계 — 조작 없는 실측</div>
+          <div class="slide-text" style="font-size:13px;color:#fff">실제 앱 내부 속도계 — 조작 없는 실측</div>
         </div>
       </div>
       <div class="slide"><div class="slide-placeholder"></div><div class="slide-content"><div class="slide-num">03 / 07 · SPEED</div><div class="slide-text">사용자 체감 완벽 전환 속도</div></div></div>
