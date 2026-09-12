@@ -422,7 +422,26 @@ body{
 .expand-body p{font-size:12px;color:var(--text2);line-height:1.8;margin-top:8px}
 .expand-body strong{color:var(--green)}
 
-/* ─── QR MINI — 도전장 배너 ─── */
+/* ─── FEATURE CARDS ─── */
+.feat-card{
+  background:linear-gradient(145deg,#0c1c2e,#091522);
+  border:1px solid rgba(0,229,160,0.18);
+  border-radius:12px;
+  padding:14px 12px;
+  cursor:pointer;
+  transition:all .2s;
+  display:flex;flex-direction:column;gap:4px;
+}
+.feat-card:hover{border-color:var(--green);background:rgba(0,229,160,0.08);transform:translateY(-2px)}
+.feat-card.gold{border-color:rgba(201,168,76,0.2)}
+.feat-card.gold:hover{border-color:var(--gold);background:rgba(201,168,76,0.08)}
+.feat-card.blue{border-color:rgba(56,189,248,0.2)}
+.feat-card.blue:hover{border-color:#38bdf8;background:rgba(56,189,248,0.08)}
+.feat-card.purple{border-color:rgba(167,139,250,0.2)}
+.feat-card.purple:hover{border-color:#a78bfa;background:rgba(167,139,250,0.08)}
+.feat-icon{font-size:22px;line-height:1}
+.feat-name{font-size:12px;font-weight:800;color:var(--text);line-height:1.3}
+.feat-desc{font-size:10px;color:var(--text3);line-height:1.3}
 .qr-mini{
   display:flex;align-items:center;justify-content:space-between;
   gap:14px;
@@ -1504,72 +1523,82 @@ footer{
 
       <div class="div-green"></div>
 
+      <!-- 팝업 오버레이 -->
+      <div id="feat-popup" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(2,11,20,0.85);backdrop-filter:blur(8px);overflow-y:auto;padding:20px 16px" onclick="if(event.target===this)closeFeatPopup()">
+        <div id="feat-popup-inner" style="background:linear-gradient(145deg,#0d1f32,#091522);border:1px solid rgba(0,229,160,0.25);border-top:3px solid var(--green);border-radius:16px;max-width:480px;margin:0 auto;padding:24px 20px;position:relative">
+          <button onclick="closeFeatPopup()" style="position:absolute;top:14px;right:14px;background:rgba(255,255,255,0.08);border:none;color:var(--text);width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:14px">✕</button>
+          <div id="feat-popup-content"></div>
+          <a id="feat-popup-link" href="https://www.c-go-fuli.com/" target="_blank" style="display:block;margin-top:20px;background:var(--green);color:#020b14;font-weight:900;font-size:13px;text-align:center;padding:13px;border-radius:10px;text-decoration:none;font-family:'Orbitron',sans-serif;letter-spacing:.04em">앱에서 열기 →</a>
+        </div>
+      </div>
+
       <div class="frosted-card">
-        <h3 style="margin-bottom:10px">전체 기능 35</h3>
+        <h3 style="margin-bottom:4px">전체 기능 35</h3>
+        <div style="font-size:11px;color:var(--text3);margin-bottom:16px">카드를 누르면 상세 설명을 볼 수 있습니다</div>
 
         <!-- 건강 · rPPG -->
-        <div style="font-size:10px;font-weight:800;color:var(--green);letter-spacing:.08em;margin-bottom:6px;margin-top:4px">건강 · rPPG</div>
-        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px">
-          <span style="font-size:11px;background:rgba(0,229,160,0.08);border:1px solid var(--border);border-radius:4px;padding:3px 8px;color:var(--text2)">❤️ 나의 건강 밸런스</span>
-          <span style="font-size:11px;background:rgba(0,229,160,0.08);border:1px solid var(--border);border-radius:4px;padding:3px 8px;color:var(--text2)">🧠 인지 건강 셀프 체크</span>
-          <span style="font-size:11px;background:rgba(0,229,160,0.08);border:1px solid var(--border);border-radius:4px;padding:3px 8px;color:var(--text2)">🧴 두피 케어</span>
-          <span style="font-size:11px;background:rgba(0,229,160,0.08);border:1px solid var(--border);border-radius:4px;padding:3px 8px;color:var(--text2)">💡 나의 IQ</span>
-          <span style="font-size:11px;background:rgba(0,229,160,0.08);border:1px solid var(--border);border-radius:4px;padding:3px 8px;color:var(--text2)">👁️ 나의 눈 건강</span>
-          <span style="font-size:11px;background:rgba(0,229,160,0.08);border:1px solid var(--border);border-radius:4px;padding:3px 8px;color:var(--text2)">🌙 좋은 수면</span>
+        <div style="font-size:10px;font-weight:800;color:var(--green);letter-spacing:.08em;margin-bottom:8px">건강 · rPPG</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px">
+          <div class="feat-card" onclick="showFeat('health1')"><div class="feat-icon">❤️</div><div class="feat-name">나의 건강 밸런스</div><div class="feat-desc">6부위 종합 분석</div></div>
+          <div class="feat-card" onclick="showFeat('health2')"><div class="feat-icon">🧠</div><div class="feat-name">인지 건강 체크</div><div class="feat-desc">인지 선별 테스트</div></div>
+          <div class="feat-card" onclick="showFeat('health3')"><div class="feat-icon">🧴</div><div class="feat-name">두피 케어</div><div class="feat-desc">5부위 분석</div></div>
+          <div class="feat-card" onclick="showFeat('health4')"><div class="feat-icon">💡</div><div class="feat-name">나의 IQ</div><div class="feat-desc">인지 능력 측정</div></div>
+          <div class="feat-card" onclick="showFeat('health5')"><div class="feat-icon">👁️</div><div class="feat-name">눈 건강</div><div class="feat-desc">눈 선명도 + AI 분석</div></div>
+          <div class="feat-card" onclick="showFeat('health6')"><div class="feat-icon">🌙</div><div class="feat-name">좋은 수면</div><div class="feat-desc">4-7-8 호흡 · 수면 사운드</div></div>
         </div>
 
         <!-- 뷰티 & 라이프 -->
-        <div style="font-size:10px;font-weight:800;color:var(--gold);letter-spacing:.08em;margin-bottom:6px">뷰티 &amp; 라이프</div>
-        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px">
-          <span style="font-size:11px;background:rgba(201,168,76,0.08);border:1px solid var(--border-gold);border-radius:4px;padding:3px 8px;color:var(--text2)">💄 AR 메이크업</span>
-          <span style="font-size:11px;background:rgba(201,168,76,0.08);border:1px solid var(--border-gold);border-radius:4px;padding:3px 8px;color:var(--text2)">✨ 피부 탄력 분석</span>
-          <span style="font-size:11px;background:rgba(201,168,76,0.08);border:1px solid var(--border-gold);border-radius:4px;padding:3px 8px;color:var(--text2)">🎵 나의 주파수 음악</span>
-          <span style="font-size:11px;background:rgba(201,168,76,0.08);border:1px solid var(--border-gold);border-radius:4px;padding:3px 8px;color:var(--text2)">🍱 음식 궁합</span>
+        <div style="font-size:10px;font-weight:800;color:var(--gold);letter-spacing:.08em;margin-bottom:8px">뷰티 &amp; 라이프</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px">
+          <div class="feat-card gold" onclick="showFeat('beauty1')"><div class="feat-icon">💄</div><div class="feat-name">AR 메이크업</div><div class="feat-desc">12만 색 · 잔상 제로</div></div>
+          <div class="feat-card gold" onclick="showFeat('beauty2')"><div class="feat-icon">✨</div><div class="feat-name">피부 탄력 분석</div><div class="feat-desc">피부 활력 측정</div></div>
+          <div class="feat-card gold" onclick="showFeat('beauty3')"><div class="feat-icon">🎵</div><div class="feat-name">주파수 음악</div><div class="feat-desc">바이오 사운드</div></div>
+          <div class="feat-card gold" onclick="showFeat('beauty4')"><div class="feat-icon">🍱</div><div class="feat-name">음식 궁합</div><div class="feat-desc">사진 분석</div></div>
         </div>
 
         <!-- 분석 모드 -->
-        <div style="font-size:10px;font-weight:800;color:#38bdf8;letter-spacing:.08em;margin-bottom:6px">분석 모드</div>
-        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px">
-          <span style="font-size:11px;background:rgba(56,189,248,0.08);border:1px solid rgba(56,189,248,0.2);border-radius:4px;padding:3px 8px;color:var(--text2)">🧠 CGO 인간유형</span>
-          <span style="font-size:11px;background:rgba(56,189,248,0.08);border:1px solid rgba(56,189,248,0.2);border-radius:4px;padding:3px 8px;color:var(--text2)">🃏 타로</span>
-          <span style="font-size:11px;background:rgba(56,189,248,0.08);border:1px solid rgba(56,189,248,0.2);border-radius:4px;padding:3px 8px;color:var(--text2)">🔮 타로 × 성격 유형</span>
-          <span style="font-size:11px;background:rgba(56,189,248,0.08);border:1px solid rgba(56,189,248,0.2);border-radius:4px;padding:3px 8px;color:var(--text2)">🌌 타로 · 성격 · 역학</span>
-          <span style="font-size:11px;background:rgba(56,189,248,0.08);border:1px solid rgba(56,189,248,0.2);border-radius:4px;padding:3px 8px;color:var(--text2)">🧭 오행 길방 · GPS 도보</span>
-          <span style="font-size:11px;background:rgba(56,189,248,0.08);border:1px solid rgba(56,189,248,0.2);border-radius:4px;padding:3px 8px;color:var(--text2)">📸 사진 색·기운 오행 궁합</span>
+        <div style="font-size:10px;font-weight:800;color:#38bdf8;letter-spacing:.08em;margin-bottom:8px">분석 모드</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px">
+          <div class="feat-card blue" onclick="showFeat('anal1')"><div class="feat-icon">🧠</div><div class="feat-name">CGO 인간유형</div><div class="feat-desc">48·92·144문항</div></div>
+          <div class="feat-card blue" onclick="showFeat('anal2')"><div class="feat-icon">🃏</div><div class="feat-name">타로</div><div class="feat-desc">78장 AI 타로 상담</div></div>
+          <div class="feat-card blue" onclick="showFeat('anal3')"><div class="feat-icon">🔮</div><div class="feat-name">타로 × 성격 유형</div><div class="feat-desc">소울카드 융합 리딩</div></div>
+          <div class="feat-card blue" onclick="showFeat('anal4')"><div class="feat-icon">🌌</div><div class="feat-name">3중 융합 리딩</div><div class="feat-desc">타로·성격·역학</div></div>
+          <div class="feat-card blue" onclick="showFeat('anal5')"><div class="feat-icon">🧭</div><div class="feat-name">오행 길방 GPS</div><div class="feat-desc">GPS 도보 연동</div></div>
+          <div class="feat-card blue" onclick="showFeat('anal6')"><div class="feat-icon">📸</div><div class="feat-name">사진 오행 궁합</div><div class="feat-desc">색·기운 분석</div></div>
         </div>
 
         <!-- 운세 · 역학 -->
-        <div style="font-size:10px;font-weight:800;color:var(--green);letter-spacing:.08em;margin-bottom:6px">운세 · 역학</div>
-        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px">
-          <span style="font-size:11px;background:rgba(0,229,160,0.08);border:1px solid var(--border);border-radius:4px;padding:3px 8px;color:var(--text2)">👤 관상</span>
-          <span style="font-size:11px;background:rgba(0,229,160,0.08);border:1px solid var(--border);border-radius:4px;padding:3px 8px;color:var(--text2)">🤲 손금</span>
-          <span style="font-size:11px;background:rgba(0,229,160,0.08);border:1px solid var(--border);border-radius:4px;padding:3px 8px;color:var(--text2)">🌙 꿈 해몽</span>
-          <span style="font-size:11px;background:rgba(0,229,160,0.08);border:1px solid var(--border);border-radius:4px;padding:3px 8px;color:var(--text2)">🌌 천지인 에너지</span>
-          <span style="font-size:11px;background:rgba(0,229,160,0.08);border:1px solid var(--border);border-radius:4px;padding:3px 8px;color:var(--text2)">📜 순수 역학 분석</span>
-          <span style="font-size:11px;background:rgba(0,229,160,0.08);border:1px solid var(--border);border-radius:4px;padding:3px 8px;color:var(--text2)">🛰️ 실시간 데이터 연동 분석</span>
-          <span style="font-size:11px;background:rgba(0,229,160,0.08);border:1px solid var(--border);border-radius:4px;padding:3px 8px;color:var(--text2)">🫀 rPPG 데이터 연동 분석</span>
-          <span style="font-size:11px;background:rgba(0,229,160,0.08);border:1px solid var(--border);border-radius:4px;padding:3px 8px;color:var(--text2)">📊 정밀 분석 리포트</span>
-          <span style="font-size:11px;background:rgba(0,229,160,0.08);border:1px solid var(--border);border-radius:4px;padding:3px 8px;color:var(--text2)">🧭 풍수 카메라</span>
-          <span style="font-size:11px;background:rgba(0,229,160,0.08);border:1px solid var(--border);border-radius:4px;padding:3px 8px;color:var(--text2)">💑 커플 궁합</span>
-          <span style="font-size:11px;background:rgba(0,229,160,0.08);border:1px solid var(--border);border-radius:4px;padding:3px 8px;color:var(--text2)">✍️ 작명 서비스</span>
+        <div style="font-size:10px;font-weight:800;color:var(--green);letter-spacing:.08em;margin-bottom:8px">운세 · 역학</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px">
+          <div class="feat-card" onclick="showFeat('yeok1')"><div class="feat-icon">👤</div><div class="feat-name">관상</div><div class="feat-desc">만세력 × 12궁 FCI</div></div>
+          <div class="feat-card" onclick="showFeat('yeok2')"><div class="feat-icon">🤲</div><div class="feat-name">손금</div><div class="feat-desc">양손 선천/후천</div></div>
+          <div class="feat-card" onclick="showFeat('yeok3')"><div class="feat-icon">🌙</div><div class="feat-name">꿈 해몽</div><div class="feat-desc">전통+과학 3중 해몽</div></div>
+          <div class="feat-card" onclick="showFeat('yeok4')"><div class="feat-icon">🌌</div><div class="feat-name">천지인 에너지</div><div class="feat-desc">하늘·땅·사람 흐름</div></div>
+          <div class="feat-card" onclick="showFeat('yeok5')"><div class="feat-icon">📜</div><div class="feat-name">순수 역학 분석</div><div class="feat-desc">50 역학 생년월일</div></div>
+          <div class="feat-card" onclick="showFeat('yeok6')"><div class="feat-icon">🛰️</div><div class="feat-name">실시간 연동 분석</div><div class="feat-desc">50역학 × NASA·기상</div></div>
+          <div class="feat-card" onclick="showFeat('yeok7')"><div class="feat-icon">🫀</div><div class="feat-name">rPPG 연동 분석</div><div class="feat-desc">50역학 × 생체</div></div>
+          <div class="feat-card" onclick="showFeat('yeok8')"><div class="feat-icon">📊</div><div class="feat-name">정밀 분석 리포트</div><div class="feat-desc">전체 결과 모아보기</div></div>
+          <div class="feat-card" onclick="showFeat('yeok9')"><div class="feat-icon">🧭</div><div class="feat-name">풍수 카메라</div><div class="feat-desc">공간 에너지 분석</div></div>
+          <div class="feat-card" onclick="showFeat('yeok10')"><div class="feat-icon">💑</div><div class="feat-name">커플 궁합</div><div class="feat-desc">rPPG × 사주</div></div>
+          <div class="feat-card" onclick="showFeat('yeok11')"><div class="feat-icon">✍️</div><div class="feat-name">작명 서비스</div><div class="feat-desc">사주 기반 이름</div></div>
         </div>
 
         <!-- 생활 · 유틸 -->
-        <div style="font-size:10px;font-weight:800;color:var(--gold);letter-spacing:.08em;margin-bottom:6px">생활 · 유틸</div>
-        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px">
-          <span style="font-size:11px;background:rgba(201,168,76,0.08);border:1px solid var(--border-gold);border-radius:4px;padding:3px 8px;color:var(--text2)">✈️ 숙소·여행지 추천</span>
-          <span style="font-size:11px;background:rgba(201,168,76,0.08);border:1px solid var(--border-gold);border-radius:4px;padding:3px 8px;color:var(--text2)">🛍️ 오행 맞춤 쇼핑</span>
-          <span style="font-size:11px;background:rgba(201,168,76,0.08);border:1px solid var(--border-gold);border-radius:4px;padding:3px 8px;color:var(--text2)">📈 주식 에너지 예측</span>
-          <span style="font-size:11px;background:rgba(201,168,76,0.08);border:1px solid var(--border-gold);border-radius:4px;padding:3px 8px;color:var(--text2)">🍀 행운 번호</span>
-          <span style="font-size:11px;background:rgba(201,168,76,0.08);border:1px solid var(--border-gold);border-radius:4px;padding:3px 8px;color:var(--text2)">⚽ 스포츠 에너지 궁합</span>
-          <span style="font-size:11px;background:rgba(201,168,76,0.08);border:1px solid var(--border-gold);border-radius:4px;padding:3px 8px;color:var(--text2)">👨‍👩‍👧 가족 ILI 관리</span>
+        <div style="font-size:10px;font-weight:800;color:var(--gold);letter-spacing:.08em;margin-bottom:8px">생활 · 유틸</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px">
+          <div class="feat-card gold" onclick="showFeat('util1')"><div class="feat-icon">✈️</div><div class="feat-name">숙소·여행지</div><div class="feat-desc">나에게 맞는 추천</div></div>
+          <div class="feat-card gold" onclick="showFeat('util2')"><div class="feat-icon">🛍️</div><div class="feat-name">오행 맞춤 쇼핑</div><div class="feat-desc">큐레이션 마켓</div></div>
+          <div class="feat-card gold" onclick="showFeat('util3')"><div class="feat-icon">📈</div><div class="feat-name">주식 에너지</div><div class="feat-desc">흐름 분석 · 참고용</div></div>
+          <div class="feat-card gold" onclick="showFeat('util4')"><div class="feat-icon">🍀</div><div class="feat-name">행운 번호</div><div class="feat-desc">오늘의 행운 숫자</div></div>
+          <div class="feat-card gold" onclick="showFeat('util5')"><div class="feat-icon">⚽</div><div class="feat-name">스포츠 에너지</div><div class="feat-desc">팀·경기 궁합</div></div>
+          <div class="feat-card gold" onclick="showFeat('util6')"><div class="feat-icon">👨‍👩‍👧</div><div class="feat-name">가족 ILI 관리</div><div class="feat-desc">가족 통합 케어</div></div>
         </div>
 
         <!-- 메모 · 회계 -->
-        <div style="font-size:10px;font-weight:800;color:#a78bfa;letter-spacing:.08em;margin-bottom:6px">메모 · 회계</div>
-        <div style="display:flex;flex-wrap:wrap;gap:6px">
-          <span style="font-size:11px;background:rgba(167,139,250,0.08);border:1px solid rgba(167,139,250,0.25);border-radius:4px;padding:3px 8px;color:var(--text2)">📝 메모장 <span style="color:#a78bfa;font-weight:700">1억 자</span></span>
-          <span style="font-size:11px;background:rgba(167,139,250,0.08);border:1px solid rgba(167,139,250,0.25);border-radius:4px;padding:3px 8px;color:var(--text2)">💰 세무·회계 <span style="color:#a78bfa;font-weight:700">음성 무제한</span></span>
+        <div style="font-size:10px;font-weight:800;color:#a78bfa;letter-spacing:.08em;margin-bottom:8px">메모 · 회계</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+          <div class="feat-card purple" onclick="showFeat('memo1')"><div class="feat-icon">📝</div><div class="feat-name">메모장</div><div class="feat-desc">1억 자 · 암호 잠금 · PDF</div></div>
+          <div class="feat-card purple" onclick="showFeat('memo2')"><div class="feat-icon">💰</div><div class="feat-name">세무·회계</div><div class="feat-desc">음성 무제한 · 월 500원~</div></div>
         </div>
       </div>
 
@@ -1615,7 +1644,75 @@ footer{
 </footer>
 
 <script>
-// ─── BGM ───
+// ─── FEATURE POPUP ───
+var featData = {
+  memo1:{
+    title:'📝 메모장',
+    sub:'1억 자를 3초에 · 암호 잠금 · 받아쓰기 · PDF',
+    body:`<p style="font-size:13px;color:#b8cce0;line-height:1.8;margin-bottom:14px">글이 아무리 길어도 느려지지 않는 메모장입니다. 1억 자 실측 완료. 메모는 서버로 보내지 않고 이 기기에만 저장되며, 암호를 걸면 나만 열 수 있습니다.</p>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div style="background:rgba(0,229,160,0.06);border-left:2px solid var(--green);border-radius:6px;padding:10px 12px"><div style="font-size:11px;font-weight:800;color:var(--green);margin-bottom:3px">① 새 메모·파일</div><div style="font-size:11px;color:#8facc4">파일로 나누어 정리 · 첫 줄이 제목 · 검색으로 바로 찾기</div></div>
+      <div style="background:rgba(0,229,160,0.06);border-left:2px solid var(--green);border-radius:6px;padding:10px 12px"><div style="font-size:11px;font-weight:800;color:var(--green);margin-bottom:3px">② 받아쓰기</div><div style="font-size:11px;color:#8facc4">음성 메모 버튼 한 번 · 말이 글이 됩니다 · 영상 보면서도 가능</div></div>
+      <div style="background:rgba(0,229,160,0.06);border-left:2px solid var(--green);border-radius:6px;padding:10px 12px"><div style="font-size:11px;font-weight:800;color:var(--green);margin-bottom:3px">③ 영상 보며 메모</div><div style="font-size:11px;color:#8facc4">유튜브·내 영상을 띄워 두고 바로 받아쓰기 — 영상 멈추지 않아도 됩니다</div></div>
+      <div style="background:rgba(0,229,160,0.06);border-left:2px solid var(--green);border-radius:6px;padding:10px 12px"><div style="font-size:11px;font-weight:800;color:var(--green);margin-bottom:3px">④ 암호 잠금</div><div style="font-size:11px;color:#8facc4">열 때 암호를 묻고 · 내 기기에서만 풀립니다</div></div>
+      <div style="background:rgba(0,229,160,0.06);border-left:2px solid var(--green);border-radius:6px;padding:10px 12px"><div style="font-size:11px;font-weight:800;color:var(--green);margin-bottom:3px">⑤ 내보내기</div><div style="font-size:11px;color:#8facc4">PDF · TXT · 전체 백업 — 한 번에 내려받기</div></div>
+    </div>
+    <div style="margin-top:12px;background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);border-radius:8px;padding:10px 12px;font-size:11px;color:#c9a84c">💡 PCT 독자 기술 적용 — 1억 자도 3초에 붙여넣기</div>`
+  },
+  memo2:{
+    title:'💰 세무·회계',
+    sub:'🎤 말하면 끝 · 음성 무제한 · 월 500원부터',
+    body:`<p style="font-size:13px;color:#b8cce0;line-height:1.8">음성으로 지출·수입을 말하면 자동으로 기록됩니다. 별도 앱 없이 CGO-FULI 안에서 세무·회계까지 처리합니다.</p>`
+  },
+  health1:{title:'❤️ 나의 건강 밸런스',sub:'6부위 종합 분석',body:`<p style="font-size:13px;color:#b8cce0;line-height:1.8">얼굴·혀·눈·손톱·손바닥 양면까지 6부위를 동시 분석하여 BPM, 혈액순환, 자율신경 상태를 종합 리포트로 제공합니다. rPPG 카메라 기반 · 별도 센서 불필요.</p>`},
+  health2:{title:'🧠 인지 건강 셀프 체크',sub:'인지 선별 테스트',body:`<p style="font-size:13px;color:#b8cce0;line-height:1.8">표준화된 인지 선별 도구를 기반으로 현재 인지 상태를 셀프 체크합니다.</p>`},
+  health3:{title:'🧴 두피 케어',sub:'5부위 분석',body:`<p style="font-size:13px;color:#b8cce0;line-height:1.8">카메라로 두피 5부위를 촬영하면 상태를 분석하고 케어 방법을 제안합니다.</p>`},
+  health4:{title:'💡 나의 IQ',sub:'인지 능력 측정',body:`<p style="font-size:13px;color:#b8cce0;line-height:1.8">인지 능력 측정 테스트로 현재 뇌의 반응속도와 처리 능력을 수치화합니다.</p>`},
+  health5:{title:'👁️ 나의 눈 건강',sub:'눈 선명도 + AI 분석',body:`<p style="font-size:13px;color:#b8cce0;line-height:1.8">눈 선명도 지수를 측정하고 AI가 종합 분석 리포트를 제공합니다.</p>`},
+  health6:{title:'🌙 좋은 수면',sub:'4-7-8 호흡 · 수면 사운드',body:`<p style="font-size:13px;color:#b8cce0;line-height:1.8">4-7-8 호흡법 가이드와 수면 사운드로 숙면을 돕습니다.</p>`},
+  beauty1:{title:'💄 AR 메이크업',sub:'12만 색 · 잔상 제로 · 실시간',body:`<p style="font-size:13px;color:#b8cce0;line-height:1.8">실시간 AR 가상 메이크업. 글로벌 빅테크 최고 수준 800색을 압도하는 <strong style="color:var(--gold)">12만 색</strong> 구현. 보급형 단말 SM-M336K에서 고개를 격하게 흔들어도 잔상·발열 없이 작동합니다.</p>`},
+  beauty2:{title:'✨ 피부 탄력 분석',sub:'피부 활력 측정',body:`<p style="font-size:13px;color:#b8cce0;line-height:1.8">카메라로 피부 탄력과 활력을 측정합니다.</p>`},
+  beauty3:{title:'🎵 나의 주파수 음악',sub:'바이오 사운드',body:`<p style="font-size:13px;color:#b8cce0;line-height:1.8">생체 리듬 데이터를 기반으로 지금 내 몸 상태에 맞는 주파수 음악을 제공합니다. Spotify·Apple Music은 취향 기반이지만, CGO는 지금 이 순간 내 몸 상태 기반입니다.</p>`},
+  beauty4:{title:'🍱 음식 궁합',sub:'사진 분석',body:`<p style="font-size:13px;color:#b8cce0;line-height:1.8">음식 사진을 찍으면 오행 기반으로 나와의 궁합을 분석합니다.</p>`},
+  anal1:{title:'🧠 CGO 인간유형',sub:'48·92·144문항 · 나의 아키타입',body:`<p style="font-size:13px;color:#b8cce0;line-height:1.8">48·92·144문항 중 선택하여 나의 인간 유형(아키타입)을 분석합니다.</p>`},
+  anal2:{title:'🃏 타로',sub:'78장 · AI 타로 상담',body:`<p style="font-size:13px;color:#b8cce0;line-height:1.8">전통 78장 타로를 AI와 함께 상담합니다.</p>`},
+  anal3:{title:'🔮 타로 × 성격 유형',sub:'소울카드 · 융합 리딩',body:`<p style="font-size:13px;color:#b8cce0;line-height:1.8">타로와 성격 유형을 결합한 소울카드 융합 리딩입니다.</p>`},
+  anal4:{title:'🌌 3중 융합 리딩',sub:'타로 · 성격 · 역학',body:`<p style="font-size:13px;color:#b8cce0;line-height:1.8">타로, 성격, 역학 세 가지를 동시에 융합하여 리딩합니다.</p>`},
+  anal5:{title:'🧭 오행 길방 GPS',sub:'GPS 도보 연동',body:`<p style="font-size:13px;color:#b8cce0;line-height:1.8">오행 길방 방향을 GPS와 연동하여 실제 도보 경로로 안내합니다.</p>`},
+  anal6:{title:'📸 사진 오행 궁합',sub:'색·기운 → 오행 궁합',body:`<p style="font-size:13px;color:#b8cce0;line-height:1.8">사진의 색과 기운을 분석하여 오행 궁합을 도출합니다.</p>`},
+  yeok1:{title:'👤 관상',sub:'만세력 × 12궁 · FCI',body:`<p style="font-size:13px;color:#b8cce0;line-height:1.8">안면 혈색지수(FCI)와 만세력, 12궁을 결합한 관상 분석입니다.</p>`},
+  yeok2:{title:'🤲 손금',sub:'양손 · 선천/후천',body:`<p style="font-size:13px;color:#b8cce0;line-height:1.8">양손 손금을 선천과 후천으로 나누어 분석합니다.</p>`},
+  yeok3:{title:'🌙 꿈 해몽',sub:'전통+과학 3중 해몽',body:`<p style="font-size:13px;color:#b8cce0;line-height:1.8">전통 해몽과 과학적 심리 분석을 3중으로 결합합니다.</p>`},
+  yeok4:{title:'🌌 천지인 에너지',sub:'하늘·땅·사람 — 오늘의 세 흐름',body:`<p style="font-size:13px;color:#b8cce0;line-height:1.8">오늘 하늘(천), 땅(지), 사람(인)의 에너지 흐름을 분석합니다.</p>`},
+  yeok5:{title:'📜 순수 역학 분석',sub:'50 역학 · 생년월일 기반',body:`<p style="font-size:13px;color:#b8cce0;line-height:1.8">동서양 50개 역학 시스템을 생년월일 기반으로 통합 분석합니다.</p>`},
+  yeok6:{title:'🛰️ 실시간 연동 분석',sub:'50역학 × NASA·기상',body:`<p style="font-size:13px;color:#b8cce0;line-height:1.8">50개 역학에 NASA 실시간 행성 좌표와 기상 데이터를 연동합니다.</p>`},
+  yeok7:{title:'🫀 rPPG 연동 분석',sub:'50역학 × rPPG 생체',body:`<p style="font-size:13px;color:#b8cce0;line-height:1.8">50개 역학과 rPPG 실시간 생체 데이터를 교차 검증합니다.</p>`},
+  yeok8:{title:'📊 정밀 분석 리포트',sub:'전체 결과 모아보기',body:`<p style="font-size:13px;color:#b8cce0;line-height:1.8">모든 분석 결과를 한 곳에 모아 정밀 종합 리포트로 제공합니다.</p>`},
+  yeok9:{title:'🧭 풍수 카메라',sub:'공간 에너지 분석',body:`<p style="font-size:13px;color:#b8cce0;line-height:1.8">카메라로 공간을 촬영하면 풍수 에너지를 분석합니다.</p>`},
+  yeok10:{title:'💑 커플 궁합',sub:'rPPG × 사주',body:`<p style="font-size:13px;color:#b8cce0;line-height:1.8">rPPG 생체 데이터와 사주를 결합한 커플 궁합 분석입니다.</p>`},
+  yeok11:{title:'✍️ 작명 서비스',sub:'사주 기반 이름',body:`<p style="font-size:13px;color:#b8cce0;line-height:1.8">사주 기반으로 이름의 에너지와 궁합을 분석하고 작명을 제안합니다.</p>`},
+  util1:{title:'✈️ 숙소·여행지',sub:'나에게 맞는 추천',body:`<p style="font-size:13px;color:#b8cce0;line-height:1.8">오행과 생체 데이터를 기반으로 나에게 맞는 숙소와 여행지를 추천합니다.</p>`},
+  util2:{title:'🛍️ 오행 맞춤 쇼핑',sub:'큐레이션 마켓',body:`<p style="font-size:13px;color:#b8cce0;line-height:1.8">나의 오행에 맞는 상품을 큐레이션하여 추천합니다.</p>`},
+  util3:{title:'📈 주식 에너지 예측',sub:'흐름 분석 · 참고용',body:`<p style="font-size:13px;color:#b8cce0;line-height:1.8">전 세계 국가별 종목의 에너지 흐름을 분석합니다. 투자 권유가 아닌 역학·생체 기반 참고 지표입니다.</p>`},
+  util4:{title:'🍀 행운 번호',sub:'오늘의 행운 숫자',body:`<p style="font-size:13px;color:#b8cce0;line-height:1.8">오늘의 생체·역학·NASA 데이터를 기반으로 행운 번호를 도출합니다.</p>`},
+  util5:{title:'⚽ 스포츠 에너지 궁합',sub:'팀·경기 궁합',body:`<p style="font-size:13px;color:#b8cce0;line-height:1.8">팀과 경기의 에너지 궁합을 분석합니다. 11일 누적 실측 평균 74% 적중.</p>`},
+  util6:{title:'👨‍👩‍👧 가족 ILI 관리',sub:'가족 통합 케어',body:`<p style="font-size:13px;color:#b8cce0;line-height:1.8">가족 구성원 전체의 건강과 역학 데이터를 통합 관리합니다.</p>`}
+};
+
+function showFeat(id){
+  var d = featData[id];
+  if(!d) return;
+  document.getElementById('feat-popup-content').innerHTML =
+    '<div style="font-size:18px;font-weight:900;color:var(--text);margin-bottom:4px">'+d.title+'</div>'+
+    '<div style="font-size:11px;color:var(--green);margin-bottom:16px">'+d.sub+'</div>'+
+    d.body;
+  document.getElementById('feat-popup').style.display='block';
+  document.body.style.overflow='hidden';
+}
+function closeFeatPopup(){
+  document.getElementById('feat-popup').style.display='none';
+  document.body.style.overflow='';
+}
 function toggleMusic(){
   var audio = document.getElementById('bgm');
   var btn   = document.getElementById('musicBtn');
