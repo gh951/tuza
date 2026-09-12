@@ -272,6 +272,10 @@ body{
   animation:pulse 2s infinite;
 }
 @keyframes pulse{0%,100%{box-shadow:0 0 0 3px rgba(0,229,160,0.2)}50%{box-shadow:0 0 0 6px rgba(0,229,160,0.05)}}
+@keyframes zoomin{
+  0%{transform:scale(1) translate(0,0)}
+  100%{transform:scale(2.8) translate(0%,8%)}
+}
 .live-title span{font-family:'Orbitron',sans-serif;font-size:11px;color:var(--green);letter-spacing:.1em}
 .metrics-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .metric-box{
@@ -604,7 +608,18 @@ footer{
   <div class="slider-wrap" id="sl-speed">
     <div class="slider-track" id="sl-speed-track">
       <div class="slide"><div class="slide-placeholder" style="background:url(https://gh951.github.io/tuza/cgo-2.jpg) center/cover no-repeat"></div><div class="slide-content"><div class="slide-num">01 / 07 · SPEED</div><div class="slide-text">10,013회의 실제 구동 테스트</div></div></div>
-      <div class="slide"><div class="slide-placeholder"></div><div class="slide-content"><div class="slide-num">02 / 07 · SPEED</div><div class="slide-text" style="font-size:12px;color:var(--text2)">빅테크의 우회 수치인 구간별 분할 측정이 아닌,<br>정직한 사용자 체감 통령 측정(UPL) 수치.</div></div></div>
+      <div class="slide" style="overflow:hidden">
+        <div style="
+          position:absolute;inset:0;
+          background:url(https://gh951.github.io/tuza/cgo-2.jpg) center 38%/cover no-repeat;
+          animation:zoomin 4s ease-out forwards;
+          transform-origin:50% 45%;
+        "></div>
+        <div class="slide-content" style="position:relative;z-index:2;background:rgba(0,0,0,0.35);border-radius:10px;padding:12px 20px">
+          <div class="slide-num">02 / 07 · SPEED</div>
+          <div class="slide-text" style="font-size:12px;color:#fff">실제 앱 내부 속도계 — 조작 없는 실측</div>
+        </div>
+      </div>
       <div class="slide"><div class="slide-placeholder"></div><div class="slide-content"><div class="slide-num">03 / 07 · SPEED</div><div class="slide-text">사용자 체감 완벽 전환 속도</div></div></div>
       <div class="slide"><div class="slide-placeholder"></div><div class="slide-content"><div class="slide-num">04 / 07 · SPEED</div><div class="slide-text gold" style="font-size:clamp(28px,8vw,52px);font-family:'Orbitron',sans-serif">0.043초</div></div></div>
       <div class="slide"><div class="slide-placeholder"></div><div class="slide-content"><div class="slide-num">05 / 07 · SPEED</div><div class="slide-text danger">공학적으로 절대 불가능한 속도입니다.</div></div></div>
@@ -1182,6 +1197,11 @@ function goSlide(k, idx) {
   if(dots) dots.querySelectorAll('.dot').forEach(function(d,i){
     d.classList.toggle('active', i===idx);
   });
+  // 줌인 슬라이드(속도 2번) 애니메이션 재시작
+  if(k==='speed' && idx===1){
+    var zoomEl = track && track.querySelectorAll('.slide')[1] && track.querySelectorAll('.slide')[1].querySelector('[style*="zoomin"]');
+    if(zoomEl){ zoomEl.style.animation='none'; void zoomEl.offsetWidth; zoomEl.style.animation='zoomin 4s ease-out forwards'; }
+  }
 }
 
 function slideMove(k, dir) {
