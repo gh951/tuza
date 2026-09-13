@@ -488,7 +488,7 @@ footer{
 <body>
 
 <!-- ══ TOP NAV ══ -->
-<audio id="bgm" src="lee.mp3" loop preload="none"></audio>
+<audio id="bgm" src="lee.mp3" loop preload="auto"></audio>
 <nav class="top-nav">
   <div class="nav-tabs">
     <button class="nav-tab active" onclick="showSection('dashboard',this)">CGO</button>
@@ -659,53 +659,51 @@ footer{
 
   <!-- SLIDER -->
   <div class="slider-wrap" id="sl-fusion">
-    <div class="slider-track" id="sl-fusion-track" data-bg="https://gh951.github.io/tuza/cgo-1.jpg">
+    <div class="slider-track" id="sl-fusion-track">
       <div class="slide">
-        <div class="slide-placeholder"></div>
-        <div class="slide-content">
-          
-        </div>
+        <div class="slide-placeholder" style="background:url(https://raw.githubusercontent.com/gh951/tuza/master/cgo-1.jpg) center/cover no-repeat"></div>
+        <div class="slide-content"></div>
       </div>
       <div class="slide">
-        <div class="slide-placeholder"></div>
+        <div class="slide-placeholder" style="background:linear-gradient(135deg,#020b14,#071a2e)"></div>
         <div class="slide-content">
           <div class="slide-num">02 / 07 · FUSION</div>
-          <div class="slide-text gold">약 22.1MB</div>
+          <div class="slide-text gold" style="font-size:clamp(13px,3.5vw,18px);line-height:1.7">이 스마트폰으로 찍은 사진의 용량은<br>약 20~30MB 입니다.</div>
         </div>
       </div>
       <div class="slide">
-        <div class="slide-placeholder"></div>
+        <div class="slide-placeholder" style="background:linear-gradient(135deg,#020b14,#071a2e)"></div>
         <div class="slide-content">
           <div class="slide-num">03 / 07 · FUSION</div>
-          <div class="slide-text">이 크기에<br>33개 이질적 기능<br>단일앱 탑재가 가능할까요?</div>
+          <div class="slide-text" style="font-size:clamp(13px,3.5vw,18px);line-height:1.7">이 크기에 단일 앱 구성으로<br>39개 성격이 전혀 다른<br>복합 기능 탑재가 가능할까요?</div>
         </div>
       </div>
       <div class="slide">
-        <div class="slide-placeholder"></div>
+        <div class="slide-placeholder" style="background:linear-gradient(135deg,#1a0505,#020b14)"></div>
         <div class="slide-content">
           <div class="slide-num">04 / 07 · FUSION</div>
-          <div class="slide-text danger">공학적으로 불가능<br>아니 절대 불가능합니다.</div>
+          <div class="slide-text danger" style="font-size:clamp(18px,5vw,34px)">공학적으로 불가능<br>아니 절대 불가능합니다.</div>
         </div>
       </div>
       <div class="slide">
-        <div class="slide-placeholder"></div>
+        <div class="slide-placeholder" style="background:linear-gradient(135deg,#020b14,#071a2e)"></div>
         <div class="slide-content">
           <div class="slide-num">05 / 07 · FUSION</div>
-          <div class="slide-text" style="font-size:clamp(32px,8vw,60px);letter-spacing:.08em">그러나</div>
+          <div class="slide-text" style="font-size:clamp(32px,9vw,64px);letter-spacing:.08em">그러나</div>
         </div>
       </div>
       <div class="slide">
-        <div class="slide-placeholder"></div>
+        <div class="slide-placeholder" style="background:linear-gradient(135deg,#071f14,#020b14)"></div>
         <div class="slide-content">
           <div class="slide-num">06 / 07 · FUSION</div>
-          <div class="slide-text accent">CGO는 공학과 상식을 파괴하고<br>현실로 구현했습니다.</div>
+          <div class="slide-text accent" style="font-size:clamp(13px,3.5vw,18px);line-height:1.7">CGO는 공학과 상식을<br>파괴하고<br>현실로 구현했습니다.</div>
         </div>
       </div>
       <div class="slide">
-        <div class="slide-placeholder"></div>
+        <div class="slide-placeholder" style="background:linear-gradient(135deg,#071f14,#020b14)"></div>
         <div class="slide-content">
           <div class="slide-num">07 / 07 · FUSION</div>
-          <div class="slide-text" style="font-size:13px;color:var(--text2)">CGO-FULI 앱에서<br>기적을 직접 실험해 보세요</div>
+          <div class="slide-text" style="font-size:13px;color:var(--text2)">CGO-FULI 앱에서<br>기적을 직접 실험해 보세요.</div>
         </div>
       </div>
     </div>
@@ -795,107 +793,52 @@ footer{
 
   <div class="slider-wrap" id="sl-speed">
     <div class="slider-track" id="sl-speed-track">
-
-      <!-- 01: 세계 최고 선언 -->
       <div class="slide">
-        <div class="slide-placeholder" style="background:radial-gradient(ellipse at center,#071f14 0%,#020b14 70%)"></div>
+        <div class="slide-placeholder" style="background:url(https://raw.githubusercontent.com/gh951/tuza/master/cgo-2.jpg) center/cover no-repeat"></div>
+        <div class="slide-content"></div>
+      </div>
+      <div class="slide">
+        <div class="slide-placeholder" style="background:linear-gradient(135deg,#020b14,#071a2e)"></div>
         <div class="slide-content">
-          <div class="slide-num">01 / 07 · SPEED</div>
-          <div style="font-family:'Orbitron',sans-serif;font-size:10px;letter-spacing:.25em;color:var(--green);opacity:.8;margin-bottom:12px">WORLD RECORD</div>
-          <div class="slide-text" style="font-family:'Orbitron',sans-serif;font-size:clamp(13px,3.8vw,20px);color:var(--text);line-height:1.4">전 세계에서 가장 빠른<br>모바일 앱 화면 전환 속도</div>
-          <div style="margin-top:16px;font-family:'Orbitron',sans-serif;font-size:clamp(36px,10vw,68px);font-weight:900;color:var(--green);line-height:1">0.024s</div>
-          <div style="font-size:11px;color:var(--text3);margin-top:6px">실측 화면 전환 · SM-M336K 보급형 단말</div>
+          <div class="slide-num">02 / 07 · SPEED</div>
+          <div class="slide-text" style="font-size:clamp(13px,3.5vw,18px);line-height:1.7">보급형 스마트폰으로 진행한<br>10,013회의 실제 구동 테스트.</div>
         </div>
       </div>
-
-      <!-- 02: 실측 증거 화면 -->
-      <div class="slide" style="overflow:hidden;justify-content:flex-end;min-height:440px">
-        <div style="position:absolute;inset:0;background:url(https://raw.githubusercontent.com/gh951/tuza/master/cgo-1.jpg) center/cover no-repeat;opacity:.75"></div>
-        <div style="position:absolute;inset:0;background:linear-gradient(transparent 30%,rgba(2,11,20,0.92) 100%)"></div>
-        <div style="position:relative;z-index:2;width:100%;padding:20px 20px 28px">
-          <div style="font-family:'Orbitron',sans-serif;font-size:9px;letter-spacing:.2em;color:var(--green);opacity:.8;margin-bottom:6px">REAL PROOF · 조작 없는 실측 화면</div>
-          <div style="font-size:15px;font-weight:800;color:#fff;line-height:1.4">앱 내부 알약 계측기<br>실제 구동 캡처</div>
-          <div style="margin-top:10px;display:flex;gap:12px;flex-wrap:wrap">
-            <div style="background:rgba(0,229,160,0.15);border:1px solid var(--green);border-radius:8px;padding:6px 12px;text-align:center">
-              <div style="font-family:'Orbitron',sans-serif;font-size:18px;color:var(--green);font-weight:900">0.024s</div>
-              <div style="font-size:9px;color:var(--text2)">SWITCH SPEED</div>
-            </div>
-            <div style="background:rgba(201,168,76,0.15);border:1px solid var(--gold);border-radius:8px;padding:6px 12px;text-align:center">
-              <div style="font-family:'Orbitron',sans-serif;font-size:18px;color:var(--gold);font-weight:900">10,013×</div>
-              <div style="font-size:9px;color:var(--text2)">TAP COUNT</div>
-            </div>
-            <div style="background:rgba(0,229,160,0.15);border:1px solid var(--green);border-radius:8px;padding:6px 12px;text-align:center">
-              <div style="font-family:'Orbitron',sans-serif;font-size:18px;color:var(--green);font-weight:900">4ms</div>
-              <div style="font-size:9px;color:var(--text2)">BEST RECORD</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 03: avg 0.043 -->
       <div class="slide">
-        <div class="slide-placeholder" style="background:radial-gradient(ellipse at center,#071f14 0%,#020b14 70%)"></div>
+        <div class="slide-placeholder" style="background:linear-gradient(135deg,#020b14,#071a2e)"></div>
         <div class="slide-content">
           <div class="slide-num">03 / 07 · SPEED</div>
-          <div style="font-size:12px;color:var(--text3);margin-bottom:8px">10,013회 누적 실측 평균</div>
-          <div style="font-family:'Orbitron',sans-serif;font-size:clamp(38px,10vw,70px);font-weight:900;color:var(--gold);line-height:1">0.043s</div>
-          <div style="font-size:12px;color:var(--text2);margin-top:10px">아마존 · 구글 · 메타가<br>수조 원을 투자해도<br>도달하지 못한 수치</div>
+          <div class="slide-text" style="font-size:clamp(12px,3.3vw,16px);line-height:1.8">빅테크의 우회 수치인<br>구간별 분할 측정이 아닌,<br>정직한 사용자 체감 통령 측정(UPL) 수치.</div>
         </div>
       </div>
-
-      <!-- 04: 빅테크 비교 -->
       <div class="slide">
-        <div class="slide-placeholder" style="background:radial-gradient(ellipse at center,#1a0505 0%,#020b14 70%)"></div>
+        <div class="slide-placeholder" style="background:radial-gradient(ellipse at center,#071f14,#020b14)"></div>
         <div class="slide-content">
           <div class="slide-num">04 / 07 · SPEED</div>
-          <div style="font-size:12px;color:var(--text3);margin-bottom:14px">글로벌 빅테크의 현실</div>
-          <div style="display:flex;flex-direction:column;gap:10px;text-align:left;max-width:280px">
-            <div style="display:flex;justify-content:space-between;align-items:center;background:rgba(248,113,113,0.08);border:1px solid rgba(248,113,113,0.2);border-radius:8px;padding:8px 14px">
-              <span style="font-size:12px;color:var(--text2)">빅테크 Edge 서버</span>
-              <span style="font-family:'Orbitron',sans-serif;font-size:14px;font-weight:900;color:#f87171">1~2s</span>
-            </div>
-            <div style="display:flex;justify-content:space-between;align-items:center;background:rgba(248,113,113,0.05);border:1px solid rgba(248,113,113,0.15);border-radius:8px;padding:8px 14px">
-              <span style="font-size:12px;color:var(--text2)">추가 병목 (다국어·생체)</span>
-              <span style="font-family:'Orbitron',sans-serif;font-size:14px;font-weight:900;color:#f87171">+수백ms</span>
-            </div>
-            <div style="display:flex;justify-content:space-between;align-items:center;background:rgba(0,229,160,0.1);border:1px solid var(--green2);border-radius:8px;padding:8px 14px">
-              <span style="font-size:12px;color:var(--text);font-weight:700">CGO · 서버 비용 0원</span>
-              <span style="font-family:'Orbitron',sans-serif;font-size:14px;font-weight:900;color:var(--green)">0.043s</span>
-            </div>
-          </div>
+          <div class="slide-text gold" style="font-size:clamp(13px,3.5vw,18px);line-height:1.7">사용자 페이지 체감<br>완벽 전환 속도<br>평균 0.043초.</div>
         </div>
       </div>
-
-      <!-- 05: 세계 최고 선언 2 -->
       <div class="slide">
-        <div class="slide-placeholder" style="background:radial-gradient(ellipse at center,#071f14 0%,#020b14 70%)"></div>
+        <div class="slide-placeholder" style="background:linear-gradient(135deg,#1a0505,#020b14)"></div>
         <div class="slide-content">
           <div class="slide-num">05 / 07 · SPEED</div>
-          <div style="font-family:'Orbitron',sans-serif;font-size:10px;letter-spacing:.2em;color:var(--green);opacity:.7;margin-bottom:14px">CERTIFIED BY 10,013 TESTS</div>
-          <div class="slide-text accent" style="font-size:clamp(16px,4.5vw,26px);line-height:1.4">이것이 세계 최고입니다.<br>데이터가 증명합니다.</div>
-          <div style="font-size:11px;color:var(--text3);margin-top:12px">보급형 단말 SM-M336K<br>메인 서버 인프라 비용 0원</div>
+          <div class="slide-text danger" style="font-size:clamp(16px,4.5vw,28px)">공학적으로<br>절대 불가능한 속도입니다.</div>
         </div>
       </div>
-
-      <!-- 06: 파괴 선언 -->
       <div class="slide">
-        <div class="slide-placeholder" style="background:radial-gradient(ellipse at 50% 60%,#071f14 0%,#020b14 100%)"></div>
+        <div class="slide-placeholder" style="background:linear-gradient(135deg,#071f14,#020b14)"></div>
         <div class="slide-content">
           <div class="slide-num">06 / 07 · SPEED</div>
-          <div class="slide-text accent" style="font-size:clamp(15px,4.2vw,24px);line-height:1.45">CGO는 빅테크의 수조 원짜리<br>인프라를 독자 기술 하나로<br>완벽하게 대체했습니다.</div>
+          <div class="slide-text accent" style="font-size:clamp(13px,3.5vw,18px);line-height:1.7">CGO는 공학과 상식을 파괴하고<br>현실로 구현했습니다.</div>
         </div>
       </div>
-
-      <!-- 07: CTA -->
       <div class="slide">
-        <div class="slide-placeholder" style="background:radial-gradient(ellipse at center,#071f14 0%,#020b14 70%)"></div>
+        <div class="slide-placeholder" style="background:linear-gradient(135deg,#071f14,#020b14)"></div>
         <div class="slide-content">
           <div class="slide-num">07 / 07 · SPEED</div>
-          <div class="slide-text gold" style="font-size:14px;margin-bottom:8px">직접 실험하고 검증하세요</div>
-          <div style="font-size:11px;color:var(--text3)">www.c-go-fuli.com<br>앱 우측 하단 알약 → 실측 계측기</div>
+          <div class="slide-text" style="font-size:13px;color:var(--text2)">CGO-FULI 앱에서<br>기적을 직접 실험해 보세요.</div>
         </div>
       </div>
-
     </div>
     <button class="slider-arrow prev" onclick="slideMove('speed',-1)">‹</button>
     <button class="slider-arrow next" onclick="slideMove('speed',1)">›</button>
@@ -1119,68 +1062,53 @@ footer{
 
   <div class="slider-wrap" id="sl-heat">
     <div class="slider-track" id="sl-heat-track">
-      <!-- 01 -->
       <div class="slide">
-        <div class="slide-placeholder" style="background:url(https://raw.githubusercontent.com/gh951/tuza/master/cgo-3.jpeg) center top/contain no-repeat,#020b14;opacity:.5"></div>
-        <div class="slide-content">
-          <div style="font-family:'Orbitron',sans-serif;font-size:10px;letter-spacing:.2em;color:var(--green);opacity:.8;margin-bottom:10px">WORLD RECORD</div>
-          <div class="slide-text" style="font-size:clamp(14px,4vw,22px);line-height:1.4">발열 제로 · 잔상 제로<br>세계 유일의 AR 아키텍처</div>
-        </div>
+        <div class="slide-placeholder" style="background:url(https://raw.githubusercontent.com/gh951/tuza/master/cgo-3.jpeg) center/cover no-repeat"></div>
+        <div class="slide-content"></div>
       </div>
-      <!-- 02 -->
       <div class="slide">
-        <div class="slide-placeholder" style="background:radial-gradient(ellipse at center,#1a0a00 0%,#020b14 70%)"></div>
+        <div class="slide-placeholder" style="background:linear-gradient(135deg,#020b14,#071a2e)"></div>
         <div class="slide-content">
           <div class="slide-num">02 / 07 · HEAT</div>
-          <div class="slide-text accent">보급형 단말에서<br>1만 번을 두드려도<br>발열 · 렉 · 강제 종료 없음</div>
-          <div style="font-size:11px;color:var(--text3);margin-top:10px">SM-M336K 실측 10,013회</div>
+          <div class="slide-text" style="font-size:clamp(13px,3.5vw,18px);line-height:1.7">구글 · 로레알 · 삼성 등도<br>10년째 못 잡은 '잔상(Temporal Lag)'.</div>
         </div>
       </div>
-      <!-- 03 -->
       <div class="slide">
-        <div class="slide-placeholder" style="background:radial-gradient(ellipse at center,#0a0a1a 0%,#020b14 70%)"></div>
+        <div class="slide-placeholder" style="background:linear-gradient(135deg,#071f14,#020b14)"></div>
         <div class="slide-content">
           <div class="slide-num">03 / 07 · HEAT</div>
-          <div style="font-size:12px;color:var(--text3);margin-bottom:10px">글로벌 빅테크 AR 최고 수준</div>
-          <div class="slide-text" style="color:var(--text2);font-size:clamp(16px,4.5vw,26px)">600 ~ 800색</div>
-          <div style="font-size:22px;color:var(--text3);margin:6px 0">↓</div>
-          <div style="font-family:'Orbitron',sans-serif;font-size:10px;letter-spacing:.15em;color:var(--gold);margin-bottom:6px">CGO · WORLD FIRST</div>
-          <div class="slide-text gold" style="font-size:clamp(28px,8vw,54px);font-family:'Orbitron',sans-serif;line-height:1">12만색</div>
-          <div style="font-size:11px;color:var(--text3);margin-top:6px">잔상 없이 · 발열 없이 · 실시간으로</div>
+          <div class="slide-text accent" style="font-size:clamp(13px,3.5vw,18px);line-height:1.7">보급폰에서 1만 번을 흔들어도<br>발열, 렉 거의 제로.</div>
         </div>
       </div>
-      <!-- 04 -->
       <div class="slide">
-        <div class="slide-placeholder" style="background:url(https://raw.githubusercontent.com/gh951/tuza/master/cgo-2.jpg) center/cover no-repeat;opacity:.45"></div>
+        <div class="slide-placeholder" style="background:radial-gradient(ellipse at center,#0a0a1a,#020b14)"></div>
         <div class="slide-content">
           <div class="slide-num">04 / 07 · HEAT</div>
-          <div style="font-family:'Orbitron',sans-serif;font-size:9px;letter-spacing:.18em;color:var(--green);opacity:.8;margin-bottom:8px">REAL PROOF</div>
-          <div class="slide-text" style="font-size:13px;color:var(--text)">실제 구동 화면<br>12만 색 AR 픽셀맵<br>보급형 단말 실캡처</div>
+          <div style="font-size:12px;color:var(--text3);margin-bottom:8px">글로벌 빅테크 AR 최고 수준</div>
+          <div class="slide-text" style="color:var(--text2);font-size:clamp(16px,4.5vw,26px)">600 ~ 800색</div>
+          <div style="font-size:20px;color:var(--text3);margin:6px 0">↓</div>
+          <div class="slide-text gold" style="font-size:clamp(28px,8vw,54px);font-family:'Orbitron',sans-serif;line-height:1">12만 색</div>
         </div>
       </div>
-      <!-- 05 -->
       <div class="slide">
-        <div class="slide-placeholder" style="background:radial-gradient(ellipse at center,#1a0505 0%,#020b14 70%)"></div>
+        <div class="slide-placeholder" style="background:linear-gradient(135deg,#1a0505,#020b14)"></div>
         <div class="slide-content">
           <div class="slide-num">05 / 07 · HEAT</div>
-          <div class="slide-text danger" style="font-size:clamp(13px,3.8vw,20px);line-height:1.5">전 세계 어디에도<br>잔상 없이 12만 색이<br>작동하는 앱은 없습니다.</div>
+          <div class="slide-text danger" style="font-size:clamp(16px,4.5vw,28px);line-height:1.5">기존 주류 공학으로는<br>절대 불가능합니다.</div>
         </div>
       </div>
-      <!-- 06 -->
       <div class="slide">
-        <div class="slide-placeholder" style="background:radial-gradient(ellipse at center,#071f14 0%,#020b14 70%)"></div>
+        <div class="slide-placeholder" style="background:linear-gradient(135deg,#071f14,#020b14)"></div>
         <div class="slide-content">
           <div class="slide-num">06 / 07 · HEAT</div>
-          <div class="slide-text accent" style="font-size:clamp(15px,4.2vw,24px);line-height:1.45">CGO가 세계 최초이자<br>세계 유일입니다.</div>
+          <div class="slide-text accent" style="font-size:clamp(13px,3.5vw,18px);line-height:1.7">CGO는 공학과 상식을 파괴하고<br>현실로 구현했습니다.</div>
         </div>
       </div>
-      <!-- 07 -->
       <div class="slide">
-        <div class="slide-placeholder" style="background:radial-gradient(ellipse at center,#071f14 0%,#020b14 70%)"></div>
+        <div class="slide-placeholder" style="background:linear-gradient(135deg,#071f14,#020b14)"></div>
         <div class="slide-content">
           <div class="slide-num">07 / 07 · HEAT</div>
-          <div class="slide-text gold" style="font-size:13px;margin-bottom:8px">직접 실험하세요</div>
-          <div style="font-size:11px;color:var(--text3)">AR 메이크업 기능에서<br>12만 색을 격하게 돌려보세요</div>
+          <div class="slide-text" style="font-size:13px;color:var(--text2)">CGO-FULI 앱의 AR 메이크업 기능에서<br>기적을 직접 실험해 보세요.</div>
         </div>
       </div>
     </div>
@@ -1362,13 +1290,52 @@ footer{
 
   <div class="slider-wrap" id="sl-yeok">
     <div class="slider-track" id="sl-yeok-track">
-      <div class="slide"><div class="slide-placeholder" style="background:linear-gradient(135deg,#060918,#0a1030)"></div><div class="slide-content"></div></div>
-      <div class="slide"><div class="slide-placeholder" style="background:linear-gradient(135deg,#060918,#0a1030)"></div><div class="slide-content"><div class="slide-num">02 / 07 · METAPHYSICS</div><div class="slide-text gold" style="font-size:clamp(32px,8vw,52px);font-family:'Orbitron',sans-serif">최대 23°</div></div></div>
-      <div class="slide"><div class="slide-placeholder" style="background:linear-gradient(135deg,#060918,#0a1030)"></div><div class="slide-content"><div class="slide-num">03 / 07 · METAPHYSICS</div><div class="slide-text" style="font-size:12px;line-height:1.7;color:var(--text2)">지구 자전축의 세차운동과 현대 지자기 왜곡을 무시한<br>고대 공식으로, 우주와 인간의 주파수를<br>정밀하게 연결할 수 있을까요?</div></div></div>
-      <div class="slide"><div class="slide-placeholder" style="background:linear-gradient(135deg,#060918,#0a1030)"></div><div class="slide-content"><div class="slide-num">04 / 07 · METAPHYSICS</div><div class="slide-text danger">과학적으로 불가능<br>아니 절대 불가능합니다.</div></div></div>
-      <div class="slide"><div class="slide-placeholder" style="background:linear-gradient(135deg,#060918,#0a1030)"></div><div class="slide-content"><div class="slide-num">05 / 07 · METAPHYSICS</div><div class="slide-text" style="font-size:clamp(32px,8vw,60px);letter-spacing:.08em">그러나</div></div></div>
-      <div class="slide"><div class="slide-placeholder" style="background:linear-gradient(135deg,#060918,#0a1030)"></div><div class="slide-content"><div class="slide-num">06 / 07 · METAPHYSICS</div><div class="slide-text accent">CGO는 철학적 관념과 데이터 왜곡을 파괴하고<br>정량적 수학 매트릭스로 구현했습니다.</div></div></div>
-      <div class="slide"><div class="slide-placeholder" style="background:linear-gradient(135deg,#060918,#0a1030)"></div><div class="slide-content"><div class="slide-num">07 / 07 · METAPHYSICS</div><div class="slide-text" style="font-size:13px;color:var(--text2)">CGO-FULI 앱에서<br>시공간이 일치하는 입체 공명을<br>직접 실험해 보세요</div></div></div>
+      <div class="slide">
+        <div class="slide-placeholder" style="background:linear-gradient(135deg,#060918,#0a1030)"></div>
+        <div class="slide-content"></div>
+      </div>
+      <div class="slide">
+        <div class="slide-placeholder" style="background:linear-gradient(135deg,#060918,#0a1030)"></div>
+        <div class="slide-content">
+          <div class="slide-num">02 / 07 · METAPHYSICS</div>
+          <div class="slide-text gold" style="font-size:clamp(13px,3.5vw,18px);line-height:1.7">고대 역학이 내포한<br>시공간적 누적 오차는<br>최대 23° 입니다.</div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="slide-placeholder" style="background:linear-gradient(135deg,#060918,#0a1030)"></div>
+        <div class="slide-content">
+          <div class="slide-num">03 / 07 · METAPHYSICS</div>
+          <div class="slide-text" style="font-size:clamp(12px,3.3vw,16px);line-height:1.8;color:var(--text2)">지구 자전축의 세차운동과<br>현대 지자기 왜곡을 무시한 고대 공식으로,<br>우주와 인간의 주파수를<br>정밀하게 연결할 수 있을까요?</div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="slide-placeholder" style="background:linear-gradient(135deg,#1a0505,#020b14)"></div>
+        <div class="slide-content">
+          <div class="slide-num">04 / 07 · METAPHYSICS</div>
+          <div class="slide-text danger" style="font-size:clamp(16px,4.5vw,28px)">과학적으로 불가능,<br>아니 절대 불가능합니다.</div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="slide-placeholder" style="background:linear-gradient(135deg,#060918,#0a1030)"></div>
+        <div class="slide-content">
+          <div class="slide-num">05 / 07 · METAPHYSICS</div>
+          <div class="slide-text" style="font-size:clamp(32px,9vw,64px);letter-spacing:.08em">그러나</div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="slide-placeholder" style="background:linear-gradient(135deg,#071f14,#020b14)"></div>
+        <div class="slide-content">
+          <div class="slide-num">06 / 07 · METAPHYSICS</div>
+          <div class="slide-text accent" style="font-size:clamp(12px,3.3vw,16px);line-height:1.8">CGO는 철학적 관념과 데이터 왜곡을 파괴하고,<br>정량적 수학 매트릭스로 구현했습니다.</div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="slide-placeholder" style="background:linear-gradient(135deg,#071f14,#020b14)"></div>
+        <div class="slide-content">
+          <div class="slide-num">07 / 07 · METAPHYSICS</div>
+          <div class="slide-text" style="font-size:13px;color:var(--text2)">CGO-FULI 앱에서<br>시공간이 일치하는 입체 공명을<br>직접 실험해 보세요.</div>
+        </div>
+      </div>
     </div>
     <button class="slider-arrow prev" onclick="slideMove('yeok',-1)">‹</button>
     <button class="slider-arrow next" onclick="slideMove('yeok',1)">›</button>
@@ -1690,18 +1657,38 @@ function toggleMusic(){
   var audio = document.getElementById('bgm');
   var btn   = document.getElementById('musicBtn');
   if(audio.paused){
+    audio.currentTime = 0;
+    audio.volume = 0.5;
     audio.play().then(function(){
       btn.textContent = '■';
       btn.classList.add('playing');
-    }).catch(function(){
-      btn.textContent = '♪';
-    });
+    }).catch(function(){});
   } else {
     audio.pause();
     btn.textContent = '♪';
     btn.classList.remove('playing');
   }
 }
+
+// 페이지 진입 시 자동 재생
+document.addEventListener('DOMContentLoaded', function(){
+  var audio = document.getElementById('bgm');
+  audio.volume = 0.5;
+  audio.play().then(function(){
+    var btn = document.getElementById('musicBtn');
+    if(btn){ btn.textContent='■'; btn.classList.add('playing'); }
+  }).catch(function(){
+    // 브라우저 정책으로 막히면 첫 터치/클릭 시 재생
+    document.addEventListener('click', function f(){
+      audio.volume = 0.5;
+      audio.play().then(function(){
+        var btn = document.getElementById('musicBtn');
+        if(btn){ btn.textContent='■'; btn.classList.add('playing'); }
+      }).catch(function(){});
+      document.removeEventListener('click', f);
+    });
+  });
+});
 
 // ─── SECTION SWITCHING ───
 function showSection(name, btn) {
