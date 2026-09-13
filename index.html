@@ -422,6 +422,21 @@ body{
 .expand-body p{font-size:12px;color:var(--text2);line-height:1.8;margin-top:8px}
 .expand-body strong{color:var(--green)}
 
+/* ─── COPY BUTTON ─── */
+.copy-btn{
+  position:absolute;bottom:44px;right:12px;z-index:10;
+  background:rgba(2,11,20,0.7);
+  border:1px solid rgba(0,229,160,0.35);
+  border-radius:6px;
+  color:var(--green);
+  font-size:11px;font-weight:700;
+  padding:5px 10px;
+  cursor:pointer;
+  transition:all .2s;
+}
+.copy-btn:hover{background:rgba(0,229,160,0.15)}
+.copy-btn.copied{color:var(--gold);border-color:var(--gold)}
+
 /* ─── FEATURE CARDS ─── */
 .feat-card{
   background:linear-gradient(145deg,#0c1c2e,#091522);
@@ -836,7 +851,7 @@ footer{
 
       <!-- 02: 실측 증거 화면 -->
       <div class="slide" style="overflow:hidden;justify-content:flex-end;min-height:440px">
-        <div style="position:absolute;inset:0;background:url(speed_proof.jpg) center/cover no-repeat;opacity:.75"></div>
+        <div style="position:absolute;inset:0;background:url(https://raw.githubusercontent.com/gh951/tuza/master/cgo-1.jpg) center/cover no-repeat;opacity:.75"></div>
         <div style="position:absolute;inset:0;background:linear-gradient(transparent 30%,rgba(2,11,20,0.92) 100%)"></div>
         <div style="position:relative;z-index:2;width:100%;padding:20px 20px 28px">
           <div style="font-family:'Orbitron',sans-serif;font-size:9px;letter-spacing:.2em;color:var(--green);opacity:.8;margin-bottom:6px">REAL PROOF · 조작 없는 실측 화면</div>
@@ -1147,7 +1162,7 @@ footer{
     <div class="slider-track" id="sl-heat-track">
       <!-- 01 -->
       <div class="slide">
-        <div class="slide-placeholder" style="background:url(https://gh951.github.io/tuza/cgo-3.jpeg) center top/contain no-repeat,#020b14;opacity:.5"></div>
+        <div class="slide-placeholder" style="background:url(https://raw.githubusercontent.com/gh951/tuza/master/cgo-3.jpeg) center top/contain no-repeat,#020b14;opacity:.5"></div>
         <div class="slide-content">
           <div style="font-family:'Orbitron',sans-serif;font-size:10px;letter-spacing:.2em;color:var(--green);opacity:.8;margin-bottom:10px">WORLD RECORD</div>
           <div class="slide-text" style="font-size:clamp(14px,4vw,22px);line-height:1.4">발열 제로 · 잔상 제로<br>세계 유일의 AR 아키텍처</div>
@@ -1177,7 +1192,7 @@ footer{
       </div>
       <!-- 04 -->
       <div class="slide">
-        <div class="slide-placeholder" style="background:url(color_proof.jpg) center/cover no-repeat;opacity:.45"></div>
+        <div class="slide-placeholder" style="background:url(https://raw.githubusercontent.com/gh951/tuza/master/cgo-2.jpg) center/cover no-repeat;opacity:.45"></div>
         <div class="slide-content">
           <div class="slide-num">04 / 07 · HEAT</div>
           <div style="font-family:'Orbitron',sans-serif;font-size:9px;letter-spacing:.18em;color:var(--green);opacity:.8;margin-bottom:8px">REAL PROOF</div>
@@ -1760,10 +1775,27 @@ function buildDots() {
       d.setAttribute('data-k', k);
       d.onclick = function(){
         var ki = this.getAttribute('data-k');
+        stopAuto(ki);
         goSlide(ki, parseInt(this.getAttribute('data-i')));
+        startAuto(ki);
       };
       dots.appendChild(d);
     }
+  });
+}
+
+function copySlide(k, idx){
+  var track = document.getElementById('sl-'+k+'-track');
+  if(!track) return;
+  var slide = track.querySelectorAll('.slide')[idx];
+  if(!slide) return;
+  var content = slide.querySelector('.slide-content');
+  if(!content) return;
+  var text = content.innerText.replace(/\n+/g,'\n').trim();
+  navigator.clipboard.writeText(text).then(function(){
+    var btn = slide.querySelector('.copy-btn');
+    if(btn){ btn.textContent='✓ 복사됨'; btn.classList.add('copied');
+      setTimeout(function(){ btn.textContent='복사'; btn.classList.remove('copied'); },1500); }
   });
 }
 
@@ -1771,6 +1803,21 @@ function goSlide(k, idx) {
   sliders[k].cur = idx;
   var track = document.getElementById('sl-'+k+'-track');
   if(track) track.style.transform = 'translateX(-'+idx+'00%)';
+  // 복사 버튼 추가
+  if(track){
+    track.querySelectorAll('.slide').forEach(function(sl,i){
+      if(!sl.querySelector('.copy-btn')){
+        var btn = document.createElement('button');
+        btn.className='copy-btn';
+        btn.textContent='복사';
+        btn.setAttribute('data-k',k);
+        btn.setAttribute('data-i',i);
+        btn.onclick=function(e){e.stopPropagation();copySlide(k,i);};
+        sl.style.position='relative';
+        sl.appendChild(btn);
+      }
+    });
+  }
   var dots = document.getElementById('sl-'+k+'-dots');
   if(dots) dots.querySelectorAll('.dot').forEach(function(d,i){
     d.classList.toggle('active', i===idx);
